@@ -41,8 +41,9 @@ train = #insert dataframe
 #for headline in train["headline"]:
 #    headline_list = nltk.word_tokenize(headline)
 #    headline_list_clean = [word for word in headline_list if word.lower() not in stopwords]
-    
-text = list(train["Headline"].values)
+
+#analyzing the text values
+text = list(train["Text"].values)
 # Calling our overwritten Count vectorizer
 tf_vectorizer = LemmaCountVectorizer(max_df=0.95, min_df=2, preprocessor=preprocess_text, stop_words='english', decode_error='ignore')
 tf = tf_vectorizer.fit_transform(text)
