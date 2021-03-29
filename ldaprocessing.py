@@ -49,7 +49,7 @@ tf_vectorizer = LemmaCountVectorizer(max_df=0.95, min_df=2, preprocessor=preproc
 tf = tf_vectorizer.fit_transform(text)
 
 #feel free to edit the number of components (topic) and other parameters
-lda = LatentDirichletAllocation(n_components=3, max_iter=300, learning_method = 'online', learning_offset = 50., random_state = 0)
+lda = LatentDirichletAllocation(n_components=3, max_iter=100, learning_method = 'online', learning_offset = 40., random_state = 0)
 lda.fit(tf)
 tf_feature_names = tf_vectorizer.get_feature_names()
 print_top_words(lda, tf_feature_names, 10)
