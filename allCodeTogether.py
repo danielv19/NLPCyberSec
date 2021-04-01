@@ -57,6 +57,7 @@ import array
 from nltk.tokenize import RegexpTokenizer
 import nltk
 nltk.download('stopwords')
+nltk.download('RegexpTokenizer')
 
 for folder in os.listdir("C:/Users/danil/jupy/oig/text/"):
   text_folder = "C:/Users/danil/jupy/oig/text/" + folder + "/"
@@ -81,8 +82,9 @@ for folder in os.listdir("C:/Users/danil/jupy/oig/text/"):
       en_stop = list(nltk.corpus.stopwords.words('english'))
       stopped_tokens = [token for token in tokens if token not in en_stop]
 
-      for word in stopped_tokens:
-          file.write(" " + word)
+       for word in stopped_tokens:
+           if len(word) > 3:
+               file.write(" " + word)
       file.close()
 ##===================================================================================
 ##SECTION 3: RENAMING AND DATA FRAME COLLECTION (put parts into differnt blocks in jupyter nootebok)
